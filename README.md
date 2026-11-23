@@ -3,6 +3,13 @@
 A search bar in the Layers panel header, between the channel dropdown ("Base color") and the layer icons.
 Type a name, click a result, and the stack opens the parent groups, selects the layer and scrolls to it.
 
+<table>
+  <tr>
+    <td valign="middle" align="center"><img src="https://github.com/user-attachments/assets/c565c7ad-c7a5-43d8-a021-29ca432aa6d2" width="420" /></td>
+    <td valign="middle" align="center"><video src="https://github.com/user-attachments/assets/c88156d8-af9d-4f41-9f05-7e988b880a4c" width="420" controls muted loop></video></td>
+  </tr>
+</table>
+
 ## Features
 
 - Live search of every layer and group in the active texture set (matches anywhere in the name or path)
