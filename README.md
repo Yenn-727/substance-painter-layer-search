@@ -44,7 +44,7 @@ Near the top of `layer_search.py`:
 
 ## Credits
 
-Written with help from Claude (Anthropic).
+Designed and tested by Yenn in Painter on real production files. The code was written with Claude (Anthropic), under Yenn's direction. Commits made with Claude's help carry a `Co-Authored-By` line.
 
 ## Licence
 
