@@ -407,6 +407,9 @@ def _follow():
     """Timer: keep the box glued to the Layers header, whatever Painter rebuilds."""
     try:
         edit, combo = _state.get("edit"), _state.get("combo")
+        mw = sp.ui.get_main_window()
+        if mw.isMinimized() or QtWidgets.QApplication.applicationState() != QtCore.Qt.ApplicationActive:
+            _hide_results(keep_wanted=True)       # Painter minimized / another program in front
         if not (_valid(combo) and combo.isVisible()):
             # header gone (project closed / rebuilt / tab hidden): look for a new one, throttled
             _state["lost"] += 1
@@ -429,7 +432,13 @@ def _follow():
         _place(edit, combo)
         res = _state.get("results")
         if _valid(res):
-            if _state.get("wanted") and edit.isVisible() and edit.text().strip():
+            mw = sp.ui.get_main_window()
+            away = mw.isMinimized() or not mw.isVisible() \
+                or QtWidgets.QApplication.applicationState() != QtCore.Qt.ApplicationActive
+            if away:
+                if res.isVisible():
+                    res.hide()                 # Painter minimized / another program in front
+            elif _state.get("wanted") and edit.isVisible() and edit.text().strip():
                 if not res.isVisible():
                     res.show()                 # came back after Painter rebuilt the header
                 _position_results()
